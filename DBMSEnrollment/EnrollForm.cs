@@ -96,5 +96,10 @@ namespace DBMSEnrollment
             this.Hide();
             main.ShowDialog();
         }
+
+        private void tbAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -55,6 +55,7 @@
             this.cbCourse = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvEnrollForm_Subjects = new System.Windows.Forms.DataGridView();
             this.label23 = new System.Windows.Forms.Label();
             this.lblEnrollForm_ClassSched = new System.Windows.Forms.Label();
             this.lblEnrollForm_YearLvl = new System.Windows.Forms.Label();
@@ -77,10 +78,9 @@
             this.tbReminder = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.dgvSubjects = new System.Windows.Forms.DataGridView();
-            this.dgvEnrollForm_Subjects = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollForm_Subjects)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -257,6 +257,7 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(246, 24);
             this.tbAddress.TabIndex = 8;
+            this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
             // 
             // dtpBDay
             // 
@@ -411,6 +412,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(694, 438);
             this.panel1.TabIndex = 17;
+            // 
+            // dgvEnrollForm_Subjects
+            // 
+            this.dgvEnrollForm_Subjects.AllowUserToAddRows = false;
+            this.dgvEnrollForm_Subjects.AllowUserToDeleteRows = false;
+            this.dgvEnrollForm_Subjects.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvEnrollForm_Subjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEnrollForm_Subjects.Location = new System.Drawing.Point(435, 188);
+            this.dgvEnrollForm_Subjects.Name = "dgvEnrollForm_Subjects";
+            this.dgvEnrollForm_Subjects.ReadOnly = true;
+            this.dgvEnrollForm_Subjects.Size = new System.Drawing.Size(246, 151);
+            this.dgvEnrollForm_Subjects.TabIndex = 38;
             // 
             // label23
             // 
@@ -653,18 +666,6 @@
             this.dgvSubjects.Size = new System.Drawing.Size(246, 151);
             this.dgvSubjects.TabIndex = 37;
             // 
-            // dgvEnrollForm_Subjects
-            // 
-            this.dgvEnrollForm_Subjects.AllowUserToAddRows = false;
-            this.dgvEnrollForm_Subjects.AllowUserToDeleteRows = false;
-            this.dgvEnrollForm_Subjects.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.dgvEnrollForm_Subjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEnrollForm_Subjects.Location = new System.Drawing.Point(435, 188);
-            this.dgvEnrollForm_Subjects.Name = "dgvEnrollForm_Subjects";
-            this.dgvEnrollForm_Subjects.ReadOnly = true;
-            this.dgvEnrollForm_Subjects.Size = new System.Drawing.Size(246, 151);
-            this.dgvEnrollForm_Subjects.TabIndex = 38;
-            // 
             // EnrollmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -709,8 +710,8 @@
             this.Load += new System.EventHandler(this.EnrollmentForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollForm_Subjects)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
