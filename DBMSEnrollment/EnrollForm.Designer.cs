@@ -257,7 +257,6 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(246, 24);
             this.tbAddress.TabIndex = 8;
-            this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
             // 
             // dtpBDay
             // 
