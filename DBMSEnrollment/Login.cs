@@ -17,6 +17,8 @@ namespace DBMSEnrollment
             InitializeComponent();
         }
 
+        DataClasses1DataContext db = new DataClasses1DataContext();
+
         private void btnLogin_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -43,6 +45,11 @@ namespace DBMSEnrollment
         private void btnForgotPass_Click(object sender, EventArgs e)
         {
             //code to open forgotpass form
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
