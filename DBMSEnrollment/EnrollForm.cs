@@ -38,7 +38,7 @@ namespace DBMSEnrollment
         {
             forminputview();
             tbReminder.Visible = true;
-            DialogResult msgreview = MessageBox.Show("Before submitting REVIEW your information inputted as you can't edit it once already submitted.\nPress Okay to submit, Cancel to return", "Reminder", MessageBoxButtons.OKCancel);
+            DialogResult msgreview = MessageBox.Show("Before submitting, REVIEW the information as you can't edit it once submitted.\nPress Okay to submit, Cancel to return", "Reminder", MessageBoxButtons.OKCancel);
             if(msgreview == DialogResult.OK)
             {
                 MessageBox.Show("Enrollment Form Submitted\nTrack your enrollment process by using the Enrollment Process Tracker in the Main Page", "Sumbission Complete", MessageBoxButtons.OK);
