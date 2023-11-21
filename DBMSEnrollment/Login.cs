@@ -39,7 +39,9 @@ namespace DBMSEnrollment
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            //code to open sign up form
+            UserRegistration userRegistration = new UserRegistration();
+            this.Hide();
+            userRegistration.ShowDialog();
         }
 
         private void btnForgotPass_Click(object sender, EventArgs e)
@@ -50,6 +52,13 @@ namespace DBMSEnrollment
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void backbtn_Click(object sender, EventArgs e)
+        {
+            LandingPage landpage = new LandingPage();
+            this.Hide();
+            landpage.ShowDialog();
         }
     }
 }

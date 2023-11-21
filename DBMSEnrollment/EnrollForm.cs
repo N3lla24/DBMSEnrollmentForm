@@ -4,9 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DBMSEnrollment
 {
@@ -36,16 +40,51 @@ namespace DBMSEnrollment
 
         private void btnEnrollForm_Submit_Click(object sender, EventArgs e)
         {
-            forminputview();
-            tbReminder.Visible = true;
-            DialogResult msgreview = MessageBox.Show("Before submitting, REVIEW the information as you can't edit it once submitted.\nPress Okay to submit, Cancel to return", "Reminder", MessageBoxButtons.OKCancel);
-            if(msgreview == DialogResult.OK)
+           
+
+            Regex regexemail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$");
+            Regex regexphone = new Regex(@"09\d{9}$");
+            Match matchemail = regexemail.Match(tbEmail.Text);
+            Match matchphone = regexphone.Match(tbMobile.Text);
+            string saveFail = "Saving Failed";
+
+            if (matchemail.Success && matchphone.Success)
             {
-                MessageBox.Show("Enrollment Form Submitted\nTrack your enrollment process by using the Enrollment Process Tracker in the Main Page", "Sumbission Complete", MessageBoxButtons.OK);
-                clear();
-                tbReminder.Visible = false;
-                formload();
+                forminputview();
+                tbReminder.Visible = true;
+                DialogResult msgreview = MessageBox.Show("Before submitting, REVIEW the information as you can't edit it once submitted.\n\nPress Okay to submit, Cancel to review", "Reminder", MessageBoxButtons.OKCancel);
+
+                if (msgreview == DialogResult.OK)
+                {
+                    MessageBox.Show("Enrollment Form Submitted\nTrack your enrollment process by using the Enrollment Process Tracker in the Main Page", "Sumbission Complete", MessageBoxButtons.OK);
+                    clear();
+                    tbReminder.Visible = false;
+                    formload();
+                }
+                else
+                {
+                    tbReminder.Visible = false;
+
+                }
+
             }
+            else
+            {
+                if (matchemail.Success != true && matchphone.Success != true)
+                {
+                    MessageBox.Show("Phone number and email address format invalid. Try again!", saveFail);
+                }
+                else if (matchphone.Success != true)
+                {
+                    MessageBox.Show("Phone number format must be 11 digits and start with 09.", saveFail);
+                }
+                else if (matchemail.Success != true)
+                {
+                    MessageBox.Show("Email address format invalid. Try again!", saveFail);
+                }
+            }
+
+
         }
         
         private void btnClear_Click(object sender, EventArgs e)
@@ -53,17 +92,22 @@ namespace DBMSEnrollment
             clear();
         }
 
+        private void wrong_format(object sender, EventArgs e)
+        {
+
+        }
+
         private void forminputview()
         {
-            lblEnrollForm_Name.Text = tbFName.Text + " " + tbMName.Text + " " + tbLName.Text;
-            lblEnrollForm_Bday.Text = dtpBDay.Text ;
-            lblEnrollForm_Gender.Text = cbGender.Text ;
-            lblEnrollForm_MobNum.Text = tbMobile.Text ;
-            lblEnrollForm_Email.Text = tbEmail.Text ;
-            lblEnrollForm_HomeAdd.Text = tbAddress.Text ;
-            lblEnrollForm_Course.Text = cbCourse.Text;
-            lblEnrollForm_YearLvl.Text = cbYearLvl.Text ;
-            lblEnrollForm_ClassSched.Text = cbSched.Text ;
+            lblFullName.Text = tbFName.Text + " " + tbMName.Text + " " + tbLName.Text;
+            lblBirthdate.Text = dtpBDay.Text ;
+            lblGender.Text = cbGender.Text ;
+            lblMobile.Text = tbMobile.Text ;
+            lblEmail.Text = tbEmail.Text ;
+            lblAddress.Text = tbAddress.Text ;
+            lblCourse.Text = cbCourse.Text;
+            lblYear.Text = cbYearLvl.Text ;
+            lblSchedule.Text = cbSched.Text ;
         }
 
         private void clear()
@@ -79,15 +123,15 @@ namespace DBMSEnrollment
             cbYearLvl.Text = string.Empty;
             cbSched.Text = string.Empty;
             cbCourse.Text = string.Empty;
-            lblEnrollForm_Name.Text = string.Empty;
-            lblEnrollForm_Bday.Text = string.Empty;
-            lblEnrollForm_Gender.Text = string.Empty;
-            lblEnrollForm_MobNum.Text = string.Empty;
-            lblEnrollForm_Email.Text = string.Empty;
-            lblEnrollForm_HomeAdd.Text = string.Empty;
-            lblEnrollForm_Course.Text = string.Empty;
-            lblEnrollForm_YearLvl.Text = string.Empty;
-            lblEnrollForm_ClassSched.Text = string.Empty;
+            lblFullName.Text = string.Empty;
+            lblBirthdate.Text = string.Empty;
+            lblGender.Text = string.Empty;
+            lblMobile.Text = string.Empty;
+            lblEmail.Text = string.Empty;
+            lblAddress.Text = string.Empty;
+            lblCourse.Text = string.Empty;
+            lblYear.Text = string.Empty;
+            lblSchedule.Text = string.Empty;
         }
 
         private void formload()
