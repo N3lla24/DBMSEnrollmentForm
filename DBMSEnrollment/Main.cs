@@ -15,6 +15,13 @@ namespace DBMSEnrollment
         public Main()
         {
             InitializeComponent();
+            nameDisplay.Text = "";
+            this.Load += Form_Load;
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+            nameDisplay.Text = "";
         }
 
         private void btnMain_EnrollTracker_Click(object sender, EventArgs e)
