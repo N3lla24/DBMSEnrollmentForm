@@ -34,24 +34,24 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bdaydtp = new System.Windows.Forms.DateTimePicker();
             this.btnRegister = new System.Windows.Forms.Button();
             this.backbtn = new System.Windows.Forms.Button();
+            this.phonetb = new System.Windows.Forms.TextBox();
             this.lnametb = new System.Windows.Forms.TextBox();
             this.addresstb = new System.Windows.Forms.TextBox();
+            this.emailtb = new System.Windows.Forms.TextBox();
             this.fnametb = new System.Windows.Forms.TextBox();
+            this.passwordtb = new System.Windows.Forms.TextBox();
             this.mnametb = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.passwordtb = new System.Windows.Forms.TextBox();
-            this.emailtb = new System.Windows.Forms.TextBox();
-            this.phonetb = new System.Windows.Forms.TextBox();
-            this.bdaydtp = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -96,11 +96,12 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(465, 147);
+            this.label2.Location = new System.Drawing.Point(458, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(243, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "User Registration Form";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -129,6 +130,14 @@
             this.panel1.Size = new System.Drawing.Size(1106, 337);
             this.panel1.TabIndex = 17;
             // 
+            // bdaydtp
+            // 
+            this.bdaydtp.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bdaydtp.Location = new System.Drawing.Point(220, 160);
+            this.bdaydtp.Name = "bdaydtp";
+            this.bdaydtp.Size = new System.Drawing.Size(324, 28);
+            this.bdaydtp.TabIndex = 23;
+            // 
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,42 +165,69 @@
             this.backbtn.UseVisualStyleBackColor = false;
             this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
+            // phonetb
+            // 
+            this.phonetb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.phonetb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phonetb.Location = new System.Drawing.Point(749, 117);
+            this.phonetb.Name = "phonetb";
+            this.phonetb.Size = new System.Drawing.Size(317, 28);
+            this.phonetb.TabIndex = 11;
+            // 
             // lnametb
             // 
             this.lnametb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lnametb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnametb.Location = new System.Drawing.Point(218, 117);
+            this.lnametb.Location = new System.Drawing.Point(220, 117);
             this.lnametb.Name = "lnametb";
-            this.lnametb.Size = new System.Drawing.Size(287, 28);
+            this.lnametb.Size = new System.Drawing.Size(324, 28);
             this.lnametb.TabIndex = 11;
             // 
             // addresstb
             // 
             this.addresstb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.addresstb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addresstb.Location = new System.Drawing.Point(218, 203);
+            this.addresstb.Location = new System.Drawing.Point(220, 203);
             this.addresstb.Name = "addresstb";
-            this.addresstb.Size = new System.Drawing.Size(287, 28);
+            this.addresstb.Size = new System.Drawing.Size(324, 28);
             this.addresstb.TabIndex = 11;
+            // 
+            // emailtb
+            // 
+            this.emailtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.emailtb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailtb.Location = new System.Drawing.Point(749, 31);
+            this.emailtb.Name = "emailtb";
+            this.emailtb.Size = new System.Drawing.Size(317, 28);
+            this.emailtb.TabIndex = 11;
             // 
             // fnametb
             // 
             this.fnametb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fnametb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fnametb.Location = new System.Drawing.Point(218, 31);
+            this.fnametb.Location = new System.Drawing.Point(220, 31);
             this.fnametb.Name = "fnametb";
-            this.fnametb.Size = new System.Drawing.Size(287, 28);
+            this.fnametb.Size = new System.Drawing.Size(324, 28);
             this.fnametb.TabIndex = 11;
+            // 
+            // passwordtb
+            // 
+            this.passwordtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passwordtb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordtb.Location = new System.Drawing.Point(749, 74);
+            this.passwordtb.Name = "passwordtb";
+            this.passwordtb.Size = new System.Drawing.Size(317, 28);
+            this.passwordtb.TabIndex = 11;
+            this.passwordtb.UseSystemPasswordChar = true;
             // 
             // mnametb
             // 
             this.mnametb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mnametb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mnametb.Location = new System.Drawing.Point(218, 74);
+            this.mnametb.Location = new System.Drawing.Point(220, 74);
             this.mnametb.Name = "mnametb";
-            this.mnametb.Size = new System.Drawing.Size(287, 28);
+            this.mnametb.Size = new System.Drawing.Size(324, 28);
             this.mnametb.TabIndex = 11;
-            this.mnametb.UseSystemPasswordChar = true;
             // 
             // label8
             // 
@@ -205,6 +241,18 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Physical Address:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Lucida Bright", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label11.Location = new System.Drawing.Point(568, 124);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(151, 21);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Mobile Number:";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -217,6 +265,18 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Birthdate:";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Lucida Bright", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label10.Location = new System.Drawing.Point(568, 81);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 21);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Password:";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -228,6 +288,18 @@
             this.label6.Size = new System.Drawing.Size(107, 21);
             this.label6.TabIndex = 10;
             this.label6.Text = "Last Name:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Lucida Bright", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label9.Location = new System.Drawing.Point(568, 38);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(144, 21);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Email Address:";
             // 
             // label5
             // 
@@ -252,78 +324,6 @@
             this.label4.Size = new System.Drawing.Size(111, 21);
             this.label4.TabIndex = 10;
             this.label4.Text = "First Name:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Lucida Bright", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(592, 38);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 21);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Email Address:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Lucida Bright", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(592, 81);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 21);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Password:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Lucida Bright", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(592, 124);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(151, 21);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Mobile Number:";
-            // 
-            // passwordtb
-            // 
-            this.passwordtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordtb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordtb.Location = new System.Drawing.Point(779, 74);
-            this.passwordtb.Name = "passwordtb";
-            this.passwordtb.Size = new System.Drawing.Size(287, 28);
-            this.passwordtb.TabIndex = 11;
-            this.passwordtb.UseSystemPasswordChar = true;
-            // 
-            // emailtb
-            // 
-            this.emailtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.emailtb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailtb.Location = new System.Drawing.Point(779, 31);
-            this.emailtb.Name = "emailtb";
-            this.emailtb.Size = new System.Drawing.Size(287, 28);
-            this.emailtb.TabIndex = 11;
-            // 
-            // phonetb
-            // 
-            this.phonetb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.phonetb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phonetb.Location = new System.Drawing.Point(779, 117);
-            this.phonetb.Name = "phonetb";
-            this.phonetb.Size = new System.Drawing.Size(287, 28);
-            this.phonetb.TabIndex = 11;
-            // 
-            // bdaydtp
-            // 
-            this.bdaydtp.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdaydtp.Location = new System.Drawing.Point(218, 160);
-            this.bdaydtp.Name = "bdaydtp";
-            this.bdaydtp.Size = new System.Drawing.Size(287, 28);
-            this.bdaydtp.TabIndex = 23;
             // 
             // UserRegistration
             // 

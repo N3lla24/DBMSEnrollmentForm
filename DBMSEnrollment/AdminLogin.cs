@@ -10,23 +10,11 @@ using System.Windows.Forms;
 
 namespace DBMSEnrollment
 {
-    public partial class Login : Form
+    public partial class AdminLogin : Form
     {
-        public Login()
+        public AdminLogin()
         {
             InitializeComponent();
-        }
-
-        DataClasses1DataContext db = new DataClasses1DataContext();
-
-        private void btnLogin_Exit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void Login_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -41,40 +29,28 @@ namespace DBMSEnrollment
                 return; 
             }
 
-            var result = db.USER_ACCOUNT_EXIST_SP(email, password).SingleOrDefault();
+            var result = db.ADMIN_ACCOUNT_EXIST_SP(email, password).SingleOrDefault();
 
             if (result != null && result.AccountExists == 1)
             {
-                int userID = result.UserID;
+                int adminID = result.AdminID;
 
-                // Pass user information to the Main 
-                Main main = new Main(userID);
+                // Pass admin information to the Main 
+                AdminMain adminMain = new AdminMain();
                 this.Hide();
-                main.ShowDialog();
+                adminMain.Show();
             }
             else
             {
                 MessageBox.Show("Account not found!", "Problem Occurred");
             }*/
 
-            Main main = new Main();
+            AdminMain adminMain = new AdminMain();
             this.Hide();
-            main.ShowDialog();
-        }
-
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-            UserRegistration userRegistration = new UserRegistration();
-            this.Hide();
-            userRegistration.ShowDialog();
+            adminMain.Show();
         }
 
         private void btnForgotPass_Click(object sender, EventArgs e)
-        {
-            //code to open forgotpass form
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -84,6 +60,11 @@ namespace DBMSEnrollment
             LandingPage landpage = new LandingPage();
             this.Hide();
             landpage.ShowDialog();
+        }
+
+        private void btnMain_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

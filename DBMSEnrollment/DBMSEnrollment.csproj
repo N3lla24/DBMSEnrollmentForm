@@ -50,6 +50,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAdmin.Designer.cs">
+      <DependentUpon>AdminAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminCourse.Designer.cs">
+      <DependentUpon>AdminCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEnrollment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminEnrollment.Designer.cs">
+      <DependentUpon>AdminEnrollment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminInstructor.Designer.cs">
+      <DependentUpon>AdminInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMain.Designer.cs">
+      <DependentUpon>AdminMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProgram.Designer.cs">
+      <DependentUpon>AdminProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminStudent.Designer.cs">
+      <DependentUpon>AdminStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUser.Designer.cs">
+      <DependentUpon>AdminUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +147,33 @@
     <Compile Include="UserRegistration.Designer.cs">
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminAdmin.resx">
+      <DependentUpon>AdminAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminCourse.resx">
+      <DependentUpon>AdminCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminEnrollment.resx">
+      <DependentUpon>AdminEnrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminInstructor.resx">
+      <DependentUpon>AdminInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMain.resx">
+      <DependentUpon>AdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProgram.resx">
+      <DependentUpon>AdminProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminStudent.resx">
+      <DependentUpon>AdminStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUser.resx">
+      <DependentUpon>AdminUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EnrollTracker.resx">
       <DependentUpon>EnrollTracker.cs</DependentUpon>
     </EmbeddedResource>

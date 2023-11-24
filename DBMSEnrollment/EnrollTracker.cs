@@ -12,9 +12,11 @@ namespace DBMSEnrollment
 {
     public partial class EnrollTracker : Form
     {
+        DataClasses1DataContext db = new DataClasses1DataContext();
         public EnrollTracker()
         {
             InitializeComponent();
+            /*db.ENROLLMENT_DISPLAY_SP();*/
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -29,12 +31,7 @@ namespace DBMSEnrollment
             Application.Exit();
         }
 
-        private void btnTracker_Search_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

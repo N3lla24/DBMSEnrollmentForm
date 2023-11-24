@@ -40,61 +40,55 @@ namespace DBMSEnrollment
 
         private void btnEnrollForm_Submit_Click(object sender, EventArgs e)
         {
-           
+            // Check if any of the required textboxes (except middle name) is empty
+            if (string.IsNullOrWhiteSpace(tbFName.Text) ||
+                string.IsNullOrWhiteSpace(tbLName.Text) ||
+                string.IsNullOrWhiteSpace(dtpBDay.Text) ||
+                string.IsNullOrWhiteSpace(cbGender.Text) ||
+                string.IsNullOrWhiteSpace(tbMobile.Text) ||
+                string.IsNullOrWhiteSpace(tbEmail.Text) ||
+                string.IsNullOrWhiteSpace(tbPassword.Text) ||
+                string.IsNullOrWhiteSpace(tbAddress.Text) ||
+                string.IsNullOrWhiteSpace(cbYearLvl.Text) ||
+                string.IsNullOrWhiteSpace(cbSched.Text) ||
+                string.IsNullOrWhiteSpace(cbCourse.Text))
+            {
+                MessageBox.Show("Please fill in all required fields before submitting.", "Validation Error");
+                return; 
+            }
 
+            // Additional validation for email and phone number format
             Regex regexemail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$");
             Regex regexphone = new Regex(@"09\d{9}$");
             Match matchemail = regexemail.Match(tbEmail.Text);
             Match matchphone = regexphone.Match(tbMobile.Text);
             string saveFail = "Saving Failed";
 
-            if (matchemail.Success && matchphone.Success)
+            if (!matchemail.Success || !matchphone.Success)
             {
-                forminputview();
-                tbReminder.Visible = true;
-                DialogResult msgreview = MessageBox.Show("Before submitting, REVIEW the information as you can't edit it once submitted.\n\nPress Okay to submit, Cancel to review", "Reminder", MessageBoxButtons.OKCancel);
-
-                if (msgreview == DialogResult.OK)
-                {
-                    MessageBox.Show("Enrollment Form Submitted\nTrack your enrollment process by using the Enrollment Process Tracker in the Main Page", "Sumbission Complete", MessageBoxButtons.OK);
-                    clear();
-                    tbReminder.Visible = false;
-                    formload();
-                }
-                else
-                {
-                    tbReminder.Visible = false;
-
-                }
-
-            }
-            else
-            {
-                if (matchemail.Success != true && matchphone.Success != true)
-                {
-                    MessageBox.Show("Phone number and email address format invalid. Try again!", saveFail);
-                }
-                else if (matchphone.Success != true)
-                {
-                    MessageBox.Show("Phone number format must be 11 digits and start with 09.", saveFail);
-                }
-                else if (matchemail.Success != true)
-                {
-                    MessageBox.Show("Email address format invalid. Try again!", saveFail);
-                }
+                MessageBox.Show("Please enter valid email and phone number formats.", saveFail);
+                return; // Stop the enrollment process
             }
 
+            // Continue with the enrollment process
+            forminputview();
+            tbReminder.Visible = true;
+            DialogResult msgreview = MessageBox.Show("Before submitting, REVIEW the information as you can't edit it once submitted.\n\nPress Okay to submit, Cancel to review", "Reminder", MessageBoxButtons.OKCancel);
 
+            if (msgreview == DialogResult.OK)
+            {
+                /*db.ENROLLMENT_SAVE_SP(tbFName.Text, tbMName.Text, tbLName.Text, cbGender.Text, dtpBDay.Text, tbMobile.Text, tbEmail.Text, tbPassword.Text, tbAdress.Text, cbYearLvl.Text, cbCourse.Text);*/
+                MessageBox.Show("Enrollment Form Submitted\nTrack your enrollment process by using the Enrollment Process Tracker in the Main Page", "Submission Complete", MessageBoxButtons.OK);
+                clear();
+                tbReminder.Visible = false;
+                formload();
+            }
+            
         }
         
         private void btnClear_Click(object sender, EventArgs e)
         {
             clear();
-        }
-
-        private void wrong_format(object sender, EventArgs e)
-        {
-
         }
 
         private void forminputview()
@@ -139,6 +133,21 @@ namespace DBMSEnrollment
             Main main = new Main();
             this.Hide();
             main.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

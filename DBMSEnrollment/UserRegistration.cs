@@ -32,9 +32,6 @@ namespace DBMSEnrollment
             string password = passwordtb.Text;
             string phone = phonetb.Text;
 
-            
-            
-
             Regex regexemail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$");
             Regex regexphone = new Regex(@"09\d{9}$");
             Match matchemail = regexemail.Match(email);
@@ -44,7 +41,7 @@ namespace DBMSEnrollment
             if (matchemail.Success && matchphone.Success)
             {
                 /*db.sp_user_save(username, password, number, email, address, role);*/
-                MessageBox.Show("Information Saved!", "Saved Notice");
+                MessageBox.Show("Account created successfully!", "Registration Notice");
                 Login login = new Login();
                 this.Hide();
                 login.ShowDialog();
@@ -72,6 +69,11 @@ namespace DBMSEnrollment
             Login login = new Login();
             this.Hide();
             login.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
