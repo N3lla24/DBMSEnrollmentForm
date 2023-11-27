@@ -56,6 +56,16 @@
             this.cbCourse = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSchedule = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblCourse = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblMobile = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblBirthdate = new System.Windows.Forms.Label();
+            this.lblFullName = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dgvEnrollForm_Subjects = new System.Windows.Forms.DataGridView();
             this.label23 = new System.Windows.Forms.Label();
             this.lblEnrollForm_ClassSched = new System.Windows.Forms.Label();
@@ -80,17 +90,10 @@
             this.label22 = new System.Windows.Forms.Label();
             this.dgvSubjects = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblFullName = new System.Windows.Forms.Label();
-            this.lblBirthdate = new System.Windows.Forms.Label();
-            this.lblGender = new System.Windows.Forms.Label();
-            this.lblMobile = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.lblCourse = new System.Windows.Forms.Label();
-            this.lblYear = new System.Windows.Forms.Label();
-            this.lblSchedule = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollForm_Subjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).BeginInit();
@@ -104,9 +107,10 @@
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(191, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(331, 87);
+            this.label1.Size = new System.Drawing.Size(328, 58);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ACADEMIC UNIVERSITY \r\nSTUDENT ENROLLMENT \r\nFORM";
+            this.label1.Text = "ACADEMIC UNIVERSITY \r\nENROLLMENT SYSTEM";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -198,7 +202,7 @@
             this.label9.BackColor = System.Drawing.Color.MidnightBlue;
             this.label9.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(11, 376);
+            this.label9.Location = new System.Drawing.Point(12, 407);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(148, 20);
             this.label9.TabIndex = 0;
@@ -210,7 +214,7 @@
             this.label10.BackColor = System.Drawing.Color.MidnightBlue;
             this.label10.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(11, 305);
+            this.label10.Location = new System.Drawing.Point(12, 338);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(189, 20);
             this.label10.TabIndex = 0;
@@ -222,7 +226,7 @@
             this.label11.BackColor = System.Drawing.Color.MidnightBlue;
             this.label11.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(12, 269);
+            this.label11.Location = new System.Drawing.Point(12, 303);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(205, 20);
             this.label11.TabIndex = 0;
@@ -276,7 +280,7 @@
             // tbAddress
             // 
             this.tbAddress.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress.Location = new System.Drawing.Point(255, 260);
+            this.tbAddress.Location = new System.Drawing.Point(255, 295);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(327, 28);
@@ -302,7 +306,7 @@
             "2nd",
             "3rd",
             "4th"});
-            this.cbYearLvl.Location = new System.Drawing.Point(255, 364);
+            this.cbYearLvl.Location = new System.Drawing.Point(255, 399);
             this.cbYearLvl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbYearLvl.Name = "cbYearLvl";
             this.cbYearLvl.Size = new System.Drawing.Size(327, 28);
@@ -316,7 +320,7 @@
             this.cbSched.Items.AddRange(new object[] {
             "Morning",
             "Evening"});
-            this.cbSched.Location = new System.Drawing.Point(255, 295);
+            this.cbSched.Location = new System.Drawing.Point(255, 330);
             this.cbSched.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSched.Name = "cbSched";
             this.cbSched.Size = new System.Drawing.Size(327, 28);
@@ -391,7 +395,7 @@
             "BSIS",
             "BIT",
             "BScPE"});
-            this.cbCourse.Location = new System.Drawing.Point(255, 329);
+            this.cbCourse.Location = new System.Drawing.Point(255, 364);
             this.cbCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCourse.Name = "cbCourse";
             this.cbCourse.Size = new System.Drawing.Size(327, 28);
@@ -403,7 +407,7 @@
             this.label13.BackColor = System.Drawing.Color.MidnightBlue;
             this.label13.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(11, 342);
+            this.label13.Location = new System.Drawing.Point(12, 372);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(124, 20);
             this.label13.TabIndex = 15;
@@ -448,6 +452,105 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(738, 676);
             this.panel1.TabIndex = 17;
+            // 
+            // lblSchedule
+            // 
+            this.lblSchedule.AutoSize = true;
+            this.lblSchedule.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchedule.Location = new System.Drawing.Point(389, 184);
+            this.lblSchedule.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblSchedule.Name = "lblSchedule";
+            this.lblSchedule.Size = new System.Drawing.Size(0, 20);
+            this.lblSchedule.TabIndex = 40;
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYear.Location = new System.Drawing.Point(389, 112);
+            this.lblYear.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 20);
+            this.lblYear.TabIndex = 40;
+            // 
+            // lblCourse
+            // 
+            this.lblCourse.AutoSize = true;
+            this.lblCourse.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourse.Location = new System.Drawing.Point(389, 52);
+            this.lblCourse.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblCourse.Name = "lblCourse";
+            this.lblCourse.Size = new System.Drawing.Size(0, 20);
+            this.lblCourse.TabIndex = 40;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Location = new System.Drawing.Point(25, 393);
+            this.lblAddress.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(9, 380);
+            this.lblAddress.TabIndex = 40;
+            this.lblAddress.Text = "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(25, 314);
+            this.lblEmail.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(0, 20);
+            this.lblEmail.TabIndex = 40;
+            // 
+            // lblMobile
+            // 
+            this.lblMobile.AutoSize = true;
+            this.lblMobile.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMobile.Location = new System.Drawing.Point(25, 251);
+            this.lblMobile.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblMobile.Name = "lblMobile";
+            this.lblMobile.Size = new System.Drawing.Size(0, 20);
+            this.lblMobile.TabIndex = 40;
+            // 
+            // lblGender
+            // 
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(25, 184);
+            this.lblGender.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(0, 20);
+            this.lblGender.TabIndex = 40;
+            // 
+            // lblBirthdate
+            // 
+            this.lblBirthdate.AutoSize = true;
+            this.lblBirthdate.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirthdate.Location = new System.Drawing.Point(25, 112);
+            this.lblBirthdate.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblBirthdate.Name = "lblBirthdate";
+            this.lblBirthdate.Size = new System.Drawing.Size(0, 20);
+            this.lblBirthdate.TabIndex = 40;
+            // 
+            // lblFullName
+            // 
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullName.Location = new System.Drawing.Point(25, 52);
+            this.lblFullName.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(0, 20);
+            this.lblFullName.TabIndex = 40;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Lavender;
+            this.panel3.Location = new System.Drawing.Point(366, 30);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(2, 608);
+            this.panel3.TabIndex = 39;
             // 
             // dgvEnrollForm_Subjects
             // 
@@ -671,7 +774,7 @@
             this.label22.BackColor = System.Drawing.Color.MidnightBlue;
             this.label22.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label22.Location = new System.Drawing.Point(11, 411);
+            this.label22.Location = new System.Drawing.Point(12, 442);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(137, 20);
             this.label22.TabIndex = 36;
@@ -684,12 +787,12 @@
             this.dgvSubjects.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubjects.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvSubjects.Location = new System.Drawing.Point(255, 400);
+            this.dgvSubjects.Location = new System.Drawing.Point(255, 433);
             this.dgvSubjects.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSubjects.Name = "dgvSubjects";
             this.dgvSubjects.ReadOnly = true;
             this.dgvSubjects.RowHeadersWidth = 51;
-            this.dgvSubjects.Size = new System.Drawing.Size(328, 153);
+            this.dgvSubjects.Size = new System.Drawing.Size(328, 120);
             this.dgvSubjects.TabIndex = 37;
             // 
             // panel2
@@ -712,9 +815,11 @@
             this.panel2.Controls.Add(this.cbYearLvl);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.dtpBDay);
+            this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.tbAddress);
             this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.tbPassword);
             this.panel2.Controls.Add(this.tbEmail);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.tbMobile);
@@ -727,13 +832,27 @@
             this.panel2.Size = new System.Drawing.Size(595, 626);
             this.panel2.TabIndex = 38;
             // 
-            // panel3
+            // label25
             // 
-            this.panel3.BackColor = System.Drawing.Color.Lavender;
-            this.panel3.Location = new System.Drawing.Point(366, 37);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2, 608);
-            this.panel3.TabIndex = 39;
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label25.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label25.Location = new System.Drawing.Point(12, 268);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(162, 20);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Set new password:";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Location = new System.Drawing.Point(255, 260);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(327, 28);
+            this.tbPassword.TabIndex = 7;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
@@ -747,87 +866,18 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // lblFullName
+            // label24
             // 
-            this.lblFullName.AutoSize = true;
-            this.lblFullName.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullName.Location = new System.Drawing.Point(25, 52);
-            this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(0, 20);
-            this.lblFullName.TabIndex = 40;
-            // 
-            // lblBirthdate
-            // 
-            this.lblBirthdate.AutoSize = true;
-            this.lblBirthdate.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirthdate.Location = new System.Drawing.Point(25, 112);
-            this.lblBirthdate.Name = "lblBirthdate";
-            this.lblBirthdate.Size = new System.Drawing.Size(0, 20);
-            this.lblBirthdate.TabIndex = 40;
-            // 
-            // lblGender
-            // 
-            this.lblGender.AutoSize = true;
-            this.lblGender.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(25, 184);
-            this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(0, 20);
-            this.lblGender.TabIndex = 40;
-            // 
-            // lblMobile
-            // 
-            this.lblMobile.AutoSize = true;
-            this.lblMobile.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMobile.Location = new System.Drawing.Point(25, 251);
-            this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(0, 20);
-            this.lblMobile.TabIndex = 40;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(25, 314);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(0, 20);
-            this.lblEmail.TabIndex = 40;
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(25, 393);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(0, 20);
-            this.lblAddress.TabIndex = 40;
-            // 
-            // lblCourse
-            // 
-            this.lblCourse.AutoSize = true;
-            this.lblCourse.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourse.Location = new System.Drawing.Point(389, 52);
-            this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(0, 20);
-            this.lblCourse.TabIndex = 40;
-            // 
-            // lblYear
-            // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYear.Location = new System.Drawing.Point(389, 112);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(0, 20);
-            this.lblYear.TabIndex = 40;
-            // 
-            // lblSchedule
-            // 
-            this.lblSchedule.AutoSize = true;
-            this.lblSchedule.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchedule.Location = new System.Drawing.Point(389, 184);
-            this.lblSchedule.Name = "lblSchedule";
-            this.lblSchedule.Size = new System.Drawing.Size(0, 20);
-            this.lblSchedule.TabIndex = 40;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(192, 80);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(230, 19);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Student Enrollment Form";
+            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // EnrollmentForm
             // 
@@ -839,6 +889,7 @@
             this.Controls.Add(this.tbReminder);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEnrollForm_Return);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -923,5 +974,8 @@
         private System.Windows.Forms.Label lblMobile;
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblBirthdate;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }

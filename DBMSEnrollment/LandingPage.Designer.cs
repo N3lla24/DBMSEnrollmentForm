@@ -41,7 +41,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 23);
+            this.label1.Location = new System.Drawing.Point(42, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(479, 126);
             this.label1.TabIndex = 7;
@@ -78,7 +78,7 @@
             // 
             this.btnUserSignIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUserSignIn.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserSignIn.Location = new System.Drawing.Point(299, 500);
+            this.btnUserSignIn.Location = new System.Drawing.Point(317, 500);
             this.btnUserSignIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserSignIn.Name = "btnUserSignIn";
             this.btnUserSignIn.Size = new System.Drawing.Size(232, 55);
@@ -92,7 +92,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(588, 600);
+            this.ClientSize = new System.Drawing.Size(601, 600);
             this.Controls.Add(this.btnUserSignIn);
             this.Controls.Add(this.btnAdminSignIn);
             this.Controls.Add(this.label1);

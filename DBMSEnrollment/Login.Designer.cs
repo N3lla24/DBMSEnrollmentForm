@@ -34,8 +34,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMain_Exit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbLogin_Email = new System.Windows.Forms.TextBox();
-            this.tbLogin_Pass = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -112,28 +112,28 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Username or Email Address:";
             // 
-            // tbLogin_Email
+            // tbEmail
             // 
-            this.tbLogin_Email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbLogin_Email.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbLogin_Email.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLogin_Email.Location = new System.Drawing.Point(19, 56);
-            this.tbLogin_Email.Margin = new System.Windows.Forms.Padding(4);
-            this.tbLogin_Email.Name = "tbLogin_Email";
-            this.tbLogin_Email.Size = new System.Drawing.Size(442, 28);
-            this.tbLogin_Email.TabIndex = 10;
+            this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbEmail.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.Location = new System.Drawing.Point(19, 56);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(442, 28);
+            this.tbEmail.TabIndex = 10;
             // 
-            // tbLogin_Pass
+            // tbPassword
             // 
-            this.tbLogin_Pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbLogin_Pass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbLogin_Pass.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLogin_Pass.Location = new System.Drawing.Point(19, 131);
-            this.tbLogin_Pass.Margin = new System.Windows.Forms.Padding(4);
-            this.tbLogin_Pass.Name = "tbLogin_Pass";
-            this.tbLogin_Pass.Size = new System.Drawing.Size(442, 28);
-            this.tbLogin_Pass.TabIndex = 13;
-            this.tbLogin_Pass.UseSystemPasswordChar = true;
+            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbPassword.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Location = new System.Drawing.Point(19, 131);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(442, 28);
+            this.tbPassword.TabIndex = 13;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -195,8 +195,8 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.tbLogin_Pass);
-            this.panel1.Controls.Add(this.tbLogin_Email);
+            this.panel1.Controls.Add(this.tbPassword);
+            this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Location = new System.Drawing.Point(554, 20);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -299,8 +299,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnMain_Exit;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbLogin_Email;
-        private System.Windows.Forms.TextBox tbLogin_Pass;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLogin;

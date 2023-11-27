@@ -19,7 +19,9 @@ namespace DBMSEnrollment
 
         private void btnLogin_Click(object sender, EventArgs e) //admin button
         {
-            
+            AdminLogin admin = new AdminLogin();
+            this.Hide();
+            admin.Show();
         }
 
         private void button1_Click(object sender, EventArgs e) //user button
