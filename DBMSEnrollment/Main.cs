@@ -12,7 +12,8 @@ namespace DBMSEnrollment
 {
     public partial class Main : Form
     {
-        public Main()
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        public Main(int? userid)
         {
             InitializeComponent();
             nameDisplay.Text = "";
@@ -21,7 +22,7 @@ namespace DBMSEnrollment
 
         private void Form_Load(object sender, EventArgs e)
         {
-            nameDisplay.Text = "";
+            LoadUserData();
         }
 
         private void btnMain_EnrollTracker_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace DBMSEnrollment
 
         private void btnMain_EnrollForm_Click(object sender, EventArgs e)
         {
-           
+
             //code for enroll form
             EnrollmentForm enrollform = new EnrollmentForm();
             this.Hide();
@@ -56,6 +57,13 @@ namespace DBMSEnrollment
             Login login = new Login();
             this.Hide();
             login.ShowDialog();
+        }
+
+        private void LoadUserData()
+        {
+            // Assuming db is an instance of your data context or repository
+            var user = db.USER_VIEW_SP().ToList()[0];
+            nameDisplay.Text = user.US_FNAME + " " + user.US_MNAME + " " + user.US_LNAME;
         }
     }
 }

@@ -26,22 +26,11 @@ namespace DBMSEnrollment.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-L6FJ621L\\SQLEXPRESS;Initial Catalog=DB_ENROLLMENTSYSTEM;Integr" +
-            "ated Security=True")]
-        public string DB_ENROLLMENTSYSTEMConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-L6FJ621L\\SQLEXPRESS;Initial Catalog=ENROLLMENT_SYSTEM;Integrat" +
+            "ed Security=True")]
+        public string ENROLLMENT_SYSTEMConnectionString {
             get {
-                return ((string)(this["DB_ENROLLMENTSYSTEMConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-L6FJ621L\\SQLEXPRESS;Initial Catalog=testenroldb;Integrated Sec" +
-            "urity=True")]
-        public string testenroldbConnectionString {
-            get {
-                return ((string)(this["testenroldbConnectionString"]));
+                return ((string)(this["ENROLLMENT_SYSTEMConnectionString"]));
             }
         }
     }

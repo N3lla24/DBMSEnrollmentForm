@@ -130,9 +130,9 @@ namespace DBMSEnrollment
 
         private void formload()
         {
-            Main main = new Main();
+            /*Main main = new Main();
             this.Hide();
-            main.ShowDialog();
+            main.ShowDialog();*/
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -32,34 +32,43 @@ namespace DBMSEnrollment
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Check acc in db
-            /*string email = tbEmail.Text;
+            string email = tbEmail.Text;
             string password = tbPassword.Text;
 
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Email and password cannot be empty.", "Validation Error");
-                return; 
+                return;
             }
 
             var result = db.USER_ACCOUNT_EXIST_SP(email, password).SingleOrDefault();
 
             if (result != null && result.AccountExists == 1)
             {
-                int userID = result.UserID;
+                int? userID = result.UserID;
 
-                // Pass user information to the Main 
-                Main main = new Main(userID);
-                this.Hide();
-                main.ShowDialog();
+                // Pass user information to the Main
+                if(result.UserRole == "User")
+                {
+                    Main main = new Main(userID);
+                    this.Hide();
+                    main.ShowDialog();
+                }
+                if (result.UserRole == "Admin")
+                {
+                    AdminMain adminMain = new AdminMain();
+                    this.Hide();
+                    adminMain.Show();
+                }   
             }
             else
             {
                 MessageBox.Show("Account not found!", "Problem Occurred");
-            }*/
+            }
 
-            Main main = new Main();
+            /*Main main = new Main();
             this.Hide();
-            main.ShowDialog();
+            main.ShowDialog();*/
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)

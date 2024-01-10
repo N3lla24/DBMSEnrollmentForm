@@ -98,7 +98,7 @@
             this.pbMain_AccSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMain_AccSettings.Image = ((System.Drawing.Image)(resources.GetObject("pbMain_AccSettings.Image")));
             this.pbMain_AccSettings.Location = new System.Drawing.Point(934, 34);
-            this.pbMain_AccSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbMain_AccSettings.Margin = new System.Windows.Forms.Padding(4);
             this.pbMain_AccSettings.Name = "pbMain_AccSettings";
             this.pbMain_AccSettings.Size = new System.Drawing.Size(48, 46);
             this.pbMain_AccSettings.TabIndex = 7;
@@ -158,6 +158,7 @@
             // 
             // nameDisplay
             // 
+            this.nameDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.nameDisplay.AutoSize = true;
             this.nameDisplay.BackColor = System.Drawing.Color.Transparent;
             this.nameDisplay.Font = new System.Drawing.Font("Lucida Bright", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,6 +166,7 @@
             this.nameDisplay.Name = "nameDisplay";
             this.nameDisplay.Size = new System.Drawing.Size(0, 31);
             this.nameDisplay.TabIndex = 0;
+            this.nameDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Main
             // 

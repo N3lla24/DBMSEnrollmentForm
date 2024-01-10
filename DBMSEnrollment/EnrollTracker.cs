@@ -21,9 +21,9 @@ namespace DBMSEnrollment
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Main form1 = new Main();
+            /*Main form1 = new Main();
             this.Hide();
-            form1.ShowDialog();
+            form1.ShowDialog();*/
         }
 
         private void EnrollTracker_FormClosed(object sender, FormClosedEventArgs e)
