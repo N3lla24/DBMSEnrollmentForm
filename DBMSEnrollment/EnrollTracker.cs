@@ -13,17 +13,20 @@ namespace DBMSEnrollment
     public partial class EnrollTracker : Form
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
-        public EnrollTracker()
+        int? studid;
+        public EnrollTracker(int? id)
         {
+            studid = id;
             InitializeComponent();
-            /*db.ENROLLMENT_DISPLAY_SP();*/
+            dataGridView2.DataSource = db.STUDENT_TRACKER_SP(studid);
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            /*Main form1 = new Main();
+            int userid = Convert.ToInt32(db.GET_USER_ID(studid));
+            Main form1 = new Main(userid);
             this.Hide();
-            form1.ShowDialog();*/
+            form1.ShowDialog();
         }
 
         private void EnrollTracker_FormClosed(object sender, FormClosedEventArgs e)

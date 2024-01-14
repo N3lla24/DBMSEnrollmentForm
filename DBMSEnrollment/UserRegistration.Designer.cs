@@ -39,12 +39,10 @@
             this.backbtn = new System.Windows.Forms.Button();
             this.phonetb = new System.Windows.Forms.TextBox();
             this.lnametb = new System.Windows.Forms.TextBox();
-            this.addresstb = new System.Windows.Forms.TextBox();
             this.emailtb = new System.Windows.Forms.TextBox();
             this.fnametb = new System.Windows.Forms.TextBox();
             this.passwordtb = new System.Windows.Forms.TextBox();
             this.mnametb = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -111,12 +109,10 @@
             this.panel1.Controls.Add(this.backbtn);
             this.panel1.Controls.Add(this.phonetb);
             this.panel1.Controls.Add(this.lnametb);
-            this.panel1.Controls.Add(this.addresstb);
             this.panel1.Controls.Add(this.emailtb);
             this.panel1.Controls.Add(this.fnametb);
             this.panel1.Controls.Add(this.passwordtb);
             this.panel1.Controls.Add(this.mnametb);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label10);
@@ -183,15 +179,6 @@
             this.lnametb.Size = new System.Drawing.Size(324, 28);
             this.lnametb.TabIndex = 11;
             // 
-            // addresstb
-            // 
-            this.addresstb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.addresstb.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addresstb.Location = new System.Drawing.Point(220, 203);
-            this.addresstb.Name = "addresstb";
-            this.addresstb.Size = new System.Drawing.Size(324, 28);
-            this.addresstb.TabIndex = 11;
-            // 
             // emailtb
             // 
             this.emailtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -228,18 +215,6 @@
             this.mnametb.Name = "mnametb";
             this.mnametb.Size = new System.Drawing.Size(324, 28);
             this.mnametb.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Lucida Bright", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(31, 210);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(166, 21);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Physical Address:";
             // 
             // label11
             // 
@@ -354,14 +329,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox fnametb;
         private System.Windows.Forms.TextBox mnametb;
         private System.Windows.Forms.TextBox lnametb;
-        private System.Windows.Forms.TextBox addresstb;
         private System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.DateTimePicker bdaydtp;

@@ -56,7 +56,7 @@ namespace DBMSEnrollment
                 }
                 if (result.UserRole == "Admin")
                 {
-                    AdminMain adminMain = new AdminMain();
+                    AdminMain adminMain = new AdminMain(userID);
                     this.Hide();
                     adminMain.Show();
                 }   

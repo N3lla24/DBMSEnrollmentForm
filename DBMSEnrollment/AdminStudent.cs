@@ -12,15 +12,19 @@ namespace DBMSEnrollment
 {
     public partial class AdminStudent : Form
     {
-        public AdminStudent()
+        int studid;
+        int? adminId;
+        public AdminStudent(int? adminID)
         {
             InitializeComponent();
+            dataGridView1.DataSource = db.STUDENT_VIEW_SP();
+            adminId = adminID;
         }
         DataClasses1DataContext db = new DataClasses1DataContext();
 
         private void btnEnrollForm_Return_Click(object sender, EventArgs e)
         {
-            AdminMain adminMain = new AdminMain();
+            AdminMain adminMain = new AdminMain(adminId);
             this.Hide();
             adminMain.Show();
         }
@@ -28,14 +32,14 @@ namespace DBMSEnrollment
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string search = tbSearch.Text;
-            /*var searchResult = db.STUDENT_SEARCH_SP();
+            var searchResult = db.STUDENT_SEARCH_SP(search);
 
-            dataGridView1.DataSource = searchResult.ToList();*/
+            dataGridView1.DataSource = searchResult.ToList();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            /*db.STUDENT_UPDATE_SP();*/
+            db.STUDENT_UPDATE_SP(studid, tbFName.Text, tbMName.Text, tbLName.Text, dtpBDay.Value, tbEmail.Text, tbPhone.Text, Convert.ToInt32(cbYrLvl.Text), cbSched.Text);
             MessageBox.Show("Information successfully update!", "Information Update");
         }
 
@@ -53,10 +57,7 @@ namespace DBMSEnrollment
             {
                 if (result == DialogResult.OK)
                 {
-                    /*db.STUDENT_DELETE_SP();*/
-                    AdminMain adminMain = new AdminMain();
-                    this.Hide();
-                    adminMain.Show();
+                    db.STUDENT_DELETE_SP(studid);
                 }
             }
         }
@@ -75,7 +76,24 @@ namespace DBMSEnrollment
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get the values from the clicked row
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
 
+                // Update textboxes based on the column index
+                studid = Convert.ToInt16(selectedRow.Cells[0].Value);
+                tbFName.Text = selectedRow.Cells[2].Value.ToString();
+                tbMName.Text = selectedRow.Cells[3].Value.ToString();
+                tbLName.Text = selectedRow.Cells[4].Value.ToString();
+                dtpBDay.Text = selectedRow.Cells[6].Value.ToString();
+                tbEmail.Text = selectedRow.Cells[9].Value.ToString();
+                tbPhone.Text = selectedRow.Cells[8].Value.ToString();
+                cbYrLvl.Text = selectedRow.Cells[11].Value.ToString();
+                cbSched.Text = selectedRow.Cells[12].Value.ToString();
+            }
         }
+
+
     }
 }

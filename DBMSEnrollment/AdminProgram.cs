@@ -12,14 +12,19 @@ namespace DBMSEnrollment
 {
     public partial class AdminProgram : Form
     {
-        public AdminProgram()
+        int? adminId;
+        int progid;
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        public AdminProgram(int? adminID)
         {
             InitializeComponent();
+            dataGridView1.DataSource = db.PROGRAM_VIEW_SP();
+            adminId = adminID;
         }
 
         private void btnEnrollForm_Return_Click(object sender, EventArgs e)
         {
-            AdminMain adminMain = new AdminMain();
+            AdminMain adminMain = new AdminMain(adminId);
             this.Hide();
             adminMain.Show();
         }
@@ -27,14 +32,14 @@ namespace DBMSEnrollment
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string search = tbSearch.Text;
-            /*var searchResult = db.PROGRAM_SEARCH_SP();
+            var searchResult = db.PROGRAM_SEARCH_SP(search);
 
-            dataGridView1.DataSource = searchResult.ToList();*/
+            dataGridView1.DataSource = searchResult.ToList();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            /*db.PROGRAM_UPDATE_SP();*/
+            db.PROGRAM_UPDATE_SP(progid, tbDesc.Text, Convert.ToInt32(tbCredits.Text), cbStatus.Text);
             MessageBox.Show("Information successfully update!", "Information Update");
         }
 
@@ -48,10 +53,7 @@ namespace DBMSEnrollment
             {
                 if (result == DialogResult.OK)
                 {
-                    /*db.PROGRAM_DELETE_SP();*/
-                    AdminMain adminMain = new AdminMain();
-                    this.Hide();
-                    adminMain.Show();
+                    db.PROGRAM_DELETE_SP(progid);
                 }
             }
         }
@@ -66,6 +68,21 @@ namespace DBMSEnrollment
             tbDesc.Text = string.Empty;
             tbCredits.Text = string.Empty;
             cbStatus.Text = string.Empty;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get the values from the clicked row
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                // Update textboxes based on the column index
+                progid = Convert.ToInt32(selectedRow.Cells[0].Value);
+                tbDesc.Text = selectedRow.Cells[1].Value.ToString();
+                tbCredits.Text = selectedRow.Cells[2].Value.ToString();
+                cbStatus.Text = selectedRow.Cells[3].Value.ToString();
+            }
         }
     }
 }

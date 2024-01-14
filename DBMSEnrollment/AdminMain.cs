@@ -12,8 +12,10 @@ namespace DBMSEnrollment
 {
     public partial class AdminMain : Form
     {
-        public AdminMain()
+        int? adminId;
+        public AdminMain(int? adminID)
         {
+            adminId = adminID;
             InitializeComponent();
         }
 
@@ -26,49 +28,49 @@ namespace DBMSEnrollment
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            AdminUser adminUser = new AdminUser();
+            AdminUser adminUser = new AdminUser(adminId);
             this.Hide();
             adminUser.ShowDialog();
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            AdminAdmin adminAdmin = new AdminAdmin();
+            AdminAdmin adminAdmin = new AdminAdmin(adminId);
             this.Hide();
             adminAdmin.ShowDialog();
         }
 
         private void btnCourse_Click(object sender, EventArgs e)
         {
-            AdminCourse adminCourse = new AdminCourse();
+            AdminCourse adminCourse = new AdminCourse(adminId);
             this.Hide();
             adminCourse.ShowDialog();
         }
 
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
-            AdminEnrollment adminEnrollment = new AdminEnrollment();
+            AdminEnrollment adminEnrollment = new AdminEnrollment(adminId);
             this.Hide();
             adminEnrollment.ShowDialog();
         }
 
         private void btnInstructor_Click(object sender, EventArgs e)
         {
-            AdminInstructor adminInstructor = new AdminInstructor();
+            AdminInstructor adminInstructor = new AdminInstructor(adminId);
             this.Hide();
             adminInstructor.ShowDialog();
         }
 
         private void btnProgram_Click(object sender, EventArgs e)
         {
-            AdminProgram adminProgram = new AdminProgram();
+            AdminProgram adminProgram = new AdminProgram(adminId);
             this.Hide();
             adminProgram.ShowDialog();
         }
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            AdminStudent adminStudent = new AdminStudent();
+            AdminStudent adminStudent = new AdminStudent(adminId);
             this.Hide();
             adminStudent.ShowDialog();
         }

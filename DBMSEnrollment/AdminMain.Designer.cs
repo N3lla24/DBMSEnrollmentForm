@@ -194,9 +194,10 @@
             this.label2.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(455, 173);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 23);
+            this.label2.Size = new System.Drawing.Size(63, 23);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Hello, ";
+            this.label2.Text = "Hello";
+            this.label2.Visible = false;
             // 
             // label4
             // 

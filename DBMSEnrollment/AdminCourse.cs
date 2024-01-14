@@ -12,15 +12,19 @@ namespace DBMSEnrollment
 {
     public partial class AdminCourse : Form
     {
-        public AdminCourse()
+        int courseid;
+        int? adminId;
+        public AdminCourse(int? adminID)
         {
             InitializeComponent();
+            dataGridView1.DataSource = db.VW_COURSE_INFO();
+            adminId = adminID;
         }
         DataClasses1DataContext db = new DataClasses1DataContext();
 
         private void btnEnrollForm_Return_Click(object sender, EventArgs e)
         {
-            AdminMain adminMain = new AdminMain();
+            AdminMain adminMain = new AdminMain(adminId);
             this.Hide();
             adminMain.Show();
         }
@@ -50,7 +54,7 @@ namespace DBMSEnrollment
                 if (result == DialogResult.OK)
                 {
                     /*db.COURSE_DELETE_SP();*/
-                    AdminMain adminMain = new AdminMain();
+                    AdminMain adminMain = new AdminMain(adminId);
                     this.Hide();
                     adminMain.Show();
                 }
@@ -68,6 +72,21 @@ namespace DBMSEnrollment
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get the values from the clicked row
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                // Update textboxes based on the column index
+                courseid = Convert.ToInt32(selectedRow.Cells[0].Value);
+                tbName.Text = selectedRow.Cells[2].Value.ToString();
+                tbUnits.Text = selectedRow.Cells[3].Value.ToString();
+                cbStatus.Text = selectedRow.Cells[4].Value.ToString();
+            }
         }
     }
 }

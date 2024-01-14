@@ -50,12 +50,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbFName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpBDay = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.cbSched = new System.Windows.Forms.ComboBox();
             this.cbYrLvl = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.cbSched = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtpBDay = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -86,9 +86,12 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(530, 201);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(627, 353);
@@ -316,39 +319,19 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "First name:";
             // 
-            // label5
+            // cbSched
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label5.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(21, 120);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Birth date:";
-            // 
-            // dtpBDay
-            // 
-            this.dtpBDay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpBDay.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBDay.Location = new System.Drawing.Point(171, 112);
-            this.dtpBDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpBDay.Name = "dtpBDay";
-            this.dtpBDay.Size = new System.Drawing.Size(327, 28);
-            this.dtpBDay.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label6.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(21, 216);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Year Level:";
+            this.cbSched.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSched.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSched.FormattingEnabled = true;
+            this.cbSched.Items.AddRange(new object[] {
+            "Morning",
+            "Evening"});
+            this.cbSched.Location = new System.Drawing.Point(171, 240);
+            this.cbSched.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSched.Name = "cbSched";
+            this.cbSched.Size = new System.Drawing.Size(327, 28);
+            this.cbSched.TabIndex = 5;
             // 
             // cbYrLvl
             // 
@@ -378,19 +361,39 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Schedule:";
             // 
-            // cbSched
+            // label5
             // 
-            this.cbSched.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbSched.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSched.FormattingEnabled = true;
-            this.cbSched.Items.AddRange(new object[] {
-            "Morning",
-            "Evening"});
-            this.cbSched.Location = new System.Drawing.Point(171, 240);
-            this.cbSched.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbSched.Name = "cbSched";
-            this.cbSched.Size = new System.Drawing.Size(327, 28);
-            this.cbSched.TabIndex = 5;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label5.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Location = new System.Drawing.Point(21, 120);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Birth date:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label6.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label6.Location = new System.Drawing.Point(21, 216);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Year Level:";
+            // 
+            // dtpBDay
+            // 
+            this.dtpBDay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpBDay.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBDay.Location = new System.Drawing.Point(171, 112);
+            this.dtpBDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpBDay.Name = "dtpBDay";
+            this.dtpBDay.Size = new System.Drawing.Size(327, 28);
+            this.dtpBDay.TabIndex = 4;
             // 
             // AdminStudent
             // 

@@ -17,17 +17,40 @@ namespace DBMSEnrollment
     public partial class EnrollmentForm : Form
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
-       
-        public EnrollmentForm()
+
+        int? UserID;
+        public EnrollmentForm(int? id)
         {
+            UserID = id;
+            try
+            {
+                var studid = db.STUDENT_VIEW_SP().SingleOrDefault(r => r.US_ID == UserID);
+                var existenroll = db.CheckExistingEnrollment(studid.STUD_ID).SingleOrDefault();
+                if (existenroll.EnrollmentCount != 0)
+                {
+                    MessageBox.Show("You Currently Have Exising Enrollment. Check your to enrollment tracker", "Existing Enrollment");
+                    formload();
+                }
+            }
+            catch
+            {
+
+            }
             InitializeComponent();
         }
-        
+
         private void EnrollmentForm_Load(object sender, EventArgs e)
         {
+            var user = db.USER_INFO().SingleOrDefault(r => r.US_ID == UserID);
+            tbFName.Text = user.US_FNAME;
+            tbMName.Text = user.US_MNAME;
+            tbLName.Text = user.US_LNAME;
+            dtpBDay.Value = user.US_BDAY;
+            tbMobile.Text = user.US_PHONE;
+            tbEmail.Text = user.US_EMAIL;
             tbReminder.Visible = false;
         }
-        
+
         private void btnReturn_Click(object sender, EventArgs e)
         {
             formload();
@@ -47,15 +70,21 @@ namespace DBMSEnrollment
                 string.IsNullOrWhiteSpace(cbGender.Text) ||
                 string.IsNullOrWhiteSpace(tbMobile.Text) ||
                 string.IsNullOrWhiteSpace(tbEmail.Text) ||
-                string.IsNullOrWhiteSpace(tbPassword.Text) ||
                 string.IsNullOrWhiteSpace(tbAddress.Text) ||
                 string.IsNullOrWhiteSpace(cbYearLvl.Text) ||
                 string.IsNullOrWhiteSpace(cbSched.Text) ||
                 string.IsNullOrWhiteSpace(cbCourse.Text))
             {
                 MessageBox.Show("Please fill in all required fields before submitting.", "Validation Error");
-                return; 
+                return;
             }
+            int progid = 0;
+            int courseid = 0;
+            int insid = 0;
+            if (cbCourse.Text == "BSIT") { progid = 2; courseid = 5; insid = 3; }
+            if (cbCourse.Text == "BSIS") { progid = 3; courseid = 6; insid = 4; }
+            if (cbCourse.Text == "BIT") { progid = 4; courseid = 7; insid = 5; }
+            if (cbCourse.Text == "BScPE") { progid = 5; courseid = 8; insid = 6; }
 
             // Additional validation for email and phone number format
             Regex regexemail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$");
@@ -63,6 +92,8 @@ namespace DBMSEnrollment
             Match matchemail = regexemail.Match(tbEmail.Text);
             Match matchphone = regexphone.Match(tbMobile.Text);
             string saveFail = "Saving Failed";
+
+            
 
             if (!matchemail.Success || !matchphone.Success)
             {
@@ -77,13 +108,24 @@ namespace DBMSEnrollment
 
             if (msgreview == DialogResult.OK)
             {
-                /*db.ENROLLMENT_SAVE_SP(tbFName.Text, tbMName.Text, tbLName.Text, cbGender.Text, dtpBDay.Text, tbMobile.Text, tbEmail.Text, tbPassword.Text, tbAdress.Text, cbYearLvl.Text, cbCourse.Text);*/
-                MessageBox.Show("Enrollment Form Submitted\nTrack your enrollment process by using the Enrollment Process Tracker in the Main Page", "Submission Complete", MessageBoxButtons.OK);
-                clear();
-                tbReminder.Visible = false;
-                formload();
+                try
+                {
+                    db.STUDENT_SAVE_SP(tbFName.Text, tbMName.Text, tbLName.Text, cbGender.Text, dtpBDay.Value, tbMobile.Text, tbEmail.Text, tbAddress.Text, Convert.ToInt16(cbYearLvl.Text), cbSched.Text, UserID);
+                    var studid = db.STUDENT_VIEW_SP().SingleOrDefault(r => r.US_ID == UserID);
+                    db.ENROLLMENT_SAVE_SP(DateTime.Now, DateTime.Now.TimeOfDay, "Pending", studid.STUD_ID, progid, courseid);
+
+                    clear();
+                    tbReminder.Visible = false;
+                    formload();
+                    MessageBox.Show("Enrollment Form Submitted\nTrack your enrollment process by using the Enrollment Process Tracker in the Main Page", "Submission Complete", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
-            
+
         }
         
         private void btnClear_Click(object sender, EventArgs e)
@@ -130,9 +172,9 @@ namespace DBMSEnrollment
 
         private void formload()
         {
-            /*Main main = new Main();
+            Main main = new Main(UserID);
             this.Hide();
-            main.ShowDialog();*/
+            main.ShowDialog();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

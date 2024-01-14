@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,16 @@ namespace DBMSEnrollment
 {
     public partial class AdminUser : Form
     {
-        public AdminUser()
-        {
-            InitializeComponent();
-        }
+        int? adminId;
         DataClasses1DataContext db = new DataClasses1DataContext();
 
         string userno = "";
+        public AdminUser(int? adminID)
+        {
+            InitializeComponent();
+            adminId = adminID;
+        }
+
 
         private void AdminUser_Load(object sender, EventArgs e)
         {
@@ -27,7 +31,7 @@ namespace DBMSEnrollment
 
         private void btnEnrollForm_Return_Click(object sender, EventArgs e)
         {
-            AdminMain adminMain = new AdminMain();
+            AdminMain adminMain = new AdminMain(adminId);
             this.Hide();
             adminMain.Show();
         }
@@ -90,7 +94,7 @@ namespace DBMSEnrollment
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), "Update Error");
+                    MessageBox.Show("Error: " + ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

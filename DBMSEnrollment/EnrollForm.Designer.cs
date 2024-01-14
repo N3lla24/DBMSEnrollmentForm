@@ -66,8 +66,6 @@
             this.lblBirthdate = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvEnrollForm_Subjects = new System.Windows.Forms.DataGridView();
-            this.label23 = new System.Windows.Forms.Label();
             this.lblEnrollForm_ClassSched = new System.Windows.Forms.Label();
             this.lblEnrollForm_YearLvl = new System.Windows.Forms.Label();
             this.lblEnrollForm_Course = new System.Windows.Forms.Label();
@@ -87,16 +85,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbReminder = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.dgvSubjects = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.tbPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollForm_Subjects)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -202,7 +194,7 @@
             this.label9.BackColor = System.Drawing.Color.MidnightBlue;
             this.label9.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(12, 407);
+            this.label9.Location = new System.Drawing.Point(12, 373);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(148, 20);
             this.label9.TabIndex = 0;
@@ -214,7 +206,7 @@
             this.label10.BackColor = System.Drawing.Color.MidnightBlue;
             this.label10.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(12, 338);
+            this.label10.Location = new System.Drawing.Point(12, 304);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(189, 20);
             this.label10.TabIndex = 0;
@@ -226,7 +218,7 @@
             this.label11.BackColor = System.Drawing.Color.MidnightBlue;
             this.label11.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(12, 303);
+            this.label11.Location = new System.Drawing.Point(12, 269);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(205, 20);
             this.label11.TabIndex = 0;
@@ -280,7 +272,7 @@
             // tbAddress
             // 
             this.tbAddress.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress.Location = new System.Drawing.Point(255, 295);
+            this.tbAddress.Location = new System.Drawing.Point(255, 261);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(327, 28);
@@ -302,11 +294,11 @@
             this.cbYearLvl.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYearLvl.FormattingEnabled = true;
             this.cbYearLvl.Items.AddRange(new object[] {
-            "1st",
-            "2nd",
-            "3rd",
-            "4th"});
-            this.cbYearLvl.Location = new System.Drawing.Point(255, 399);
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.cbYearLvl.Location = new System.Drawing.Point(255, 365);
             this.cbYearLvl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbYearLvl.Name = "cbYearLvl";
             this.cbYearLvl.Size = new System.Drawing.Size(327, 28);
@@ -318,9 +310,10 @@
             this.cbSched.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSched.FormattingEnabled = true;
             this.cbSched.Items.AddRange(new object[] {
-            "Morning",
-            "Evening"});
-            this.cbSched.Location = new System.Drawing.Point(255, 330);
+            "Morning Class",
+            "Afternoon Class",
+            "Evening Class"});
+            this.cbSched.Location = new System.Drawing.Point(255, 296);
             this.cbSched.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSched.Name = "cbSched";
             this.cbSched.Size = new System.Drawing.Size(327, 28);
@@ -331,7 +324,7 @@
             this.btnEnrollForm_Submit.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEnrollForm_Submit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnrollForm_Submit.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnrollForm_Submit.Location = new System.Drawing.Point(255, 564);
+            this.btnEnrollForm_Submit.Location = new System.Drawing.Point(114, 482);
             this.btnEnrollForm_Submit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEnrollForm_Submit.Name = "btnEnrollForm_Submit";
             this.btnEnrollForm_Submit.Size = new System.Drawing.Size(159, 46);
@@ -345,7 +338,7 @@
             this.btnEnrollForm_Clear.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEnrollForm_Clear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnrollForm_Clear.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnrollForm_Clear.Location = new System.Drawing.Point(423, 564);
+            this.btnEnrollForm_Clear.Location = new System.Drawing.Point(318, 482);
             this.btnEnrollForm_Clear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEnrollForm_Clear.Name = "btnEnrollForm_Clear";
             this.btnEnrollForm_Clear.Size = new System.Drawing.Size(159, 46);
@@ -360,9 +353,9 @@
             this.cbGender.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female",
-            "Rather not say"});
+            "M",
+            "F",
+            "Others"});
             this.cbGender.Location = new System.Drawing.Point(255, 157);
             this.cbGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGender.Name = "cbGender";
@@ -395,7 +388,7 @@
             "BSIS",
             "BIT",
             "BScPE"});
-            this.cbCourse.Location = new System.Drawing.Point(255, 364);
+            this.cbCourse.Location = new System.Drawing.Point(255, 330);
             this.cbCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCourse.Name = "cbCourse";
             this.cbCourse.Size = new System.Drawing.Size(327, 28);
@@ -407,7 +400,7 @@
             this.label13.BackColor = System.Drawing.Color.MidnightBlue;
             this.label13.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(12, 372);
+            this.label13.Location = new System.Drawing.Point(12, 338);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(124, 20);
             this.label13.TabIndex = 15;
@@ -427,8 +420,6 @@
             this.panel1.Controls.Add(this.lblBirthdate);
             this.panel1.Controls.Add(this.lblFullName);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.dgvEnrollForm_Subjects);
-            this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.lblEnrollForm_ClassSched);
             this.panel1.Controls.Add(this.lblEnrollForm_YearLvl);
             this.panel1.Controls.Add(this.lblEnrollForm_Course);
@@ -551,31 +542,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(2, 608);
             this.panel3.TabIndex = 39;
-            // 
-            // dgvEnrollForm_Subjects
-            // 
-            this.dgvEnrollForm_Subjects.AllowUserToAddRows = false;
-            this.dgvEnrollForm_Subjects.AllowUserToDeleteRows = false;
-            this.dgvEnrollForm_Subjects.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.dgvEnrollForm_Subjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEnrollForm_Subjects.Location = new System.Drawing.Point(393, 275);
-            this.dgvEnrollForm_Subjects.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvEnrollForm_Subjects.Name = "dgvEnrollForm_Subjects";
-            this.dgvEnrollForm_Subjects.ReadOnly = true;
-            this.dgvEnrollForm_Subjects.RowHeadersWidth = 51;
-            this.dgvEnrollForm_Subjects.Size = new System.Drawing.Size(316, 370);
-            this.dgvEnrollForm_Subjects.TabIndex = 38;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(389, 231);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(167, 20);
-            this.label23.TabIndex = 34;
-            this.label23.Text = "Selected Subject(s):";
             // 
             // lblEnrollForm_ClassSched
             // 
@@ -768,39 +734,10 @@
             this.tbReminder.Text = "Review information before submitting!";
             this.tbReminder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label22.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label22.Location = new System.Drawing.Point(12, 442);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(137, 20);
-            this.label22.TabIndex = 36;
-            this.label22.Text = "Select subjects:";
-            // 
-            // dgvSubjects
-            // 
-            this.dgvSubjects.AllowUserToAddRows = false;
-            this.dgvSubjects.AllowUserToDeleteRows = false;
-            this.dgvSubjects.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSubjects.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvSubjects.Location = new System.Drawing.Point(255, 433);
-            this.dgvSubjects.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvSubjects.Name = "dgvSubjects";
-            this.dgvSubjects.ReadOnly = true;
-            this.dgvSubjects.RowHeadersWidth = 51;
-            this.dgvSubjects.Size = new System.Drawing.Size(328, 120);
-            this.dgvSubjects.TabIndex = 37;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel2.Controls.Add(this.btnEnrollForm_Submit);
-            this.panel2.Controls.Add(this.label22);
-            this.panel2.Controls.Add(this.dgvSubjects);
             this.panel2.Controls.Add(this.btnEnrollForm_Clear);
             this.panel2.Controls.Add(this.tbFName);
             this.panel2.Controls.Add(this.cbCourse);
@@ -815,11 +752,9 @@
             this.panel2.Controls.Add(this.cbYearLvl);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.dtpBDay);
-            this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.tbAddress);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.tbPassword);
             this.panel2.Controls.Add(this.tbEmail);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.tbMobile);
@@ -831,28 +766,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(595, 626);
             this.panel2.TabIndex = 38;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label25.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label25.Location = new System.Drawing.Point(12, 268);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(162, 20);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Set new password:";
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.Location = new System.Drawing.Point(255, 260);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(327, 28);
-            this.tbPassword.TabIndex = 7;
-            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
@@ -900,8 +813,6 @@
             this.Load += new System.EventHandler(this.EnrollmentForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollForm_Subjects)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -958,10 +869,6 @@
         private System.Windows.Forms.Label lblEnrollForm_Gender;
         private System.Windows.Forms.Label lblEnrollForm_Bday;
         private System.Windows.Forms.TextBox tbReminder;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DataGridView dgvSubjects;
-        private System.Windows.Forms.DataGridView dgvEnrollForm_Subjects;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -975,7 +882,5 @@
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblBirthdate;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox tbPassword;
     }
 }

@@ -27,7 +27,6 @@ namespace DBMSEnrollment
             string mname = mnametb.Text;
             string lname = lnametb.Text;
             DateTime bday = bdaydtp.Value;
-            string address = addresstb.Text;
             string email = emailtb.Text;
             string password = passwordtb.Text;
             string phone = phonetb.Text;

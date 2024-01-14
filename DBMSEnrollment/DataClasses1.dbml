@@ -23,6 +23,33 @@
       <Column Name="SY_END" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_GRADE" Member="TBL_GRADEs">
+    <Type Name="TBL_GRADE">
+      <Column Name="GRADE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GRADE_VALUE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COURSE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="INS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TBL_STUDENT_TBL_GRADE" Member="TBL_STUDENT" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_STUDENT" IsForeignKey="true" />
+      <Association Name="TBL_COURSE_TBL_GRADE" Member="TBL_COURSE" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_COURSE" IsForeignKey="true" />
+      <Association Name="TBL_INSTRUCTOR_TBL_GRADE" Member="TBL_INSTRUCTOR" ThisKey="INS_ID" OtherKey="INS_ID" Type="TBL_INSTRUCTOR" IsForeignKey="true" />
+      <Association Name="TBL_PROGRAM_TBL_GRADE" Member="TBL_PROGRAM" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_PROGRAM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_ADMIN" Member="TBL_ADMINs">
+    <Type Name="TBL_ADMIN">
+      <Column Name="ADMIN_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ADMIN_NO" Type="System.String" DbType="VarChar(9)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ADMIN_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADMIN_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_PASSWORD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBL_STUDENT" Member="TBL_STUDENTs">
     <Type Name="TBL_STUDENT">
       <Column Name="STUD_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -35,33 +62,43 @@
       <Column Name="STUD_AGE" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="STUD_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="STUD_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="STUD_PASSWORD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="STUD_ADDRESS" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="STUD_YRLVL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="STUD_SCHED" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="US_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="TBL_STUDENT_TBL_PROGRAM" Member="TBL_PROGRAMs" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_PROGRAM" />
       <Association Name="TBL_STUDENT_TBL_GRADE" Member="TBL_GRADEs" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_GRADE" />
       <Association Name="TBL_STUDENT_TBL_ENROLLMENT" Member="TBL_ENROLLMENTs" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_ENROLLMENT" />
       <Association Name="TBL_USER_TBL_STUDENT" Member="TBL_USER" ThisKey="US_ID" OtherKey="US_ID" Type="TBL_USER" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_PROGRAM" Member="TBL_PROGRAMs">
-    <Type Name="TBL_PROGRAM">
-      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PROG_NO" Type="System.String" DbType="VarChar(10)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PROG_DESC" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="PROG_CREDITS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PROG_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.TBL_COURSE" Member="TBL_COURSEs">
+    <Type Name="TBL_COURSE">
+      <Column Name="COURSE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="COURSE_NO" Type="System.String" DbType="VarChar(9)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COURSE_NAME" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="COURSE_UNITS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COURSE_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INS_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBL_COURSE_TBL_GRADE" Member="TBL_GRADEs" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_GRADE" />
+      <Association Name="TBL_COURSE_TBL_ENROLLMENT" Member="TBL_ENROLLMENTs" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_ENROLLMENT" />
+      <Association Name="TBL_INSTRUCTOR_TBL_COURSE" Member="TBL_INSTRUCTOR" ThisKey="INS_ID" OtherKey="INS_ID" Type="TBL_INSTRUCTOR" IsForeignKey="true" />
+      <Association Name="TBL_PROGRAM_TBL_COURSE" Member="TBL_PROGRAM" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_PROGRAM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_ENROLLMENT" Member="TBL_ENROLLMENTs">
+    <Type Name="TBL_ENROLLMENT">
+      <Column Name="ENROLL_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ENROLL_NO" Type="System.String" DbType="VarChar(9)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ENROLL_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ENROLL_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ENROLL_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="STUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="COURSE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="INS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="TBL_PROGRAM_TBL_INSTRUCTOR" Member="TBL_INSTRUCTORs" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_INSTRUCTOR" />
-      <Association Name="TBL_PROGRAM_TBL_GRADE" Member="TBL_GRADEs" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_GRADE" />
-      <Association Name="TBL_PROGRAM_TBL_COURSE" Member="TBL_COURSEs" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_COURSE" />
-      <Association Name="TBL_STUDENT_TBL_PROGRAM" Member="TBL_STUDENT" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_STUDENT" IsForeignKey="true" />
-      <Association Name="TBL_INSTRUCTOR_TBL_PROGRAM" Member="TBL_INSTRUCTOR" ThisKey="INS_ID" OtherKey="INS_ID" Type="TBL_INSTRUCTOR" IsForeignKey="true" />
-      <Association Name="TBL_COURSE_TBL_PROGRAM" Member="TBL_COURSE" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_COURSE" IsForeignKey="true" />
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COURSE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBL_STUDENT_TBL_ENROLLMENT" Member="TBL_STUDENT" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_STUDENT" IsForeignKey="true" />
+      <Association Name="TBL_COURSE_TBL_ENROLLMENT" Member="TBL_COURSE" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_COURSE" IsForeignKey="true" />
+      <Association Name="TBL_PROGRAM_TBL_ENROLLMENT" Member="TBL_PROGRAM" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_PROGRAM" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBL_INSTRUCTOR" Member="TBL_INSTRUCTORs">
@@ -78,61 +115,23 @@
       <Column Name="INS_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="INS_PASSWORD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="INS_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="TBL_INSTRUCTOR_TBL_PROGRAM" Member="TBL_PROGRAMs" ThisKey="INS_ID" OtherKey="INS_ID" Type="TBL_PROGRAM" />
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBL_INSTRUCTOR_TBL_GRADE" Member="TBL_GRADEs" ThisKey="INS_ID" OtherKey="INS_ID" Type="TBL_GRADE" />
+      <Association Name="TBL_INSTRUCTOR_TBL_COURSE" Member="TBL_COURSEs" ThisKey="INS_ID" OtherKey="INS_ID" Type="TBL_COURSE" />
       <Association Name="TBL_PROGRAM_TBL_INSTRUCTOR" Member="TBL_PROGRAM" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_PROGRAM" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_GRADE" Member="TBL_GRADEs">
-    <Type Name="TBL_GRADE">
-      <Column Name="GRADE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GRADE_VALUE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="STUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="COURSE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="INS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="TBL_INSTRUCTOR_TBL_GRADE" Member="TBL_INSTRUCTOR" ThisKey="INS_ID" OtherKey="INS_ID" Type="TBL_INSTRUCTOR" IsForeignKey="true" />
-      <Association Name="TBL_PROGRAM_TBL_GRADE" Member="TBL_PROGRAM" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_PROGRAM" IsForeignKey="true" />
-      <Association Name="TBL_STUDENT_TBL_GRADE" Member="TBL_STUDENT" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_STUDENT" IsForeignKey="true" />
-      <Association Name="TBL_COURSE_TBL_GRADE" Member="TBL_COURSE" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_COURSE" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_ENROLLMENT" Member="TBL_ENROLLMENTs">
-    <Type Name="TBL_ENROLLMENT">
-      <Column Name="ENROLL_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ENROLL_NO" Type="System.String" DbType="VarChar(9)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ENROLL_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ENROLL_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Column Name="ENROLL_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="STUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="TBL_STUDENT_TBL_ENROLLMENT" Member="TBL_STUDENT" ThisKey="STUD_ID" OtherKey="STUD_ID" Type="TBL_STUDENT" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_COURSE" Member="TBL_COURSEs">
-    <Type Name="TBL_COURSE">
-      <Column Name="COURSE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="COURSE_NO" Type="System.String" DbType="VarChar(9)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COURSE_NAME" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="COURSE_UNITS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="COURSE_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="TBL_COURSE_TBL_PROGRAM" Member="TBL_PROGRAMs" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_PROGRAM" />
-      <Association Name="TBL_COURSE_TBL_GRADE" Member="TBL_GRADEs" ThisKey="COURSE_ID" OtherKey="COURSE_ID" Type="TBL_GRADE" />
-      <Association Name="TBL_PROGRAM_TBL_COURSE" Member="TBL_PROGRAM" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_PROGRAM" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_ADMIN" Member="TBL_ADMINs">
-    <Type Name="TBL_ADMIN">
-      <Column Name="ADMIN_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ADMIN_NO" Type="System.String" DbType="VarChar(9)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ADMIN_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ADMIN_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ADMIN_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ADMIN_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="ADMIN_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ADMIN_USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ADMIN_PASSWORD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.TBL_PROGRAM" Member="TBL_PROGRAMs">
+    <Type Name="TBL_PROGRAM">
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PROG_NO" Type="System.String" DbType="VarChar(10)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PROG_DESC" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_CREDITS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="TBL_PROGRAM_TBL_GRADE" Member="TBL_GRADEs" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_GRADE" />
+      <Association Name="TBL_PROGRAM_TBL_COURSE" Member="TBL_COURSEs" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_COURSE" />
+      <Association Name="TBL_PROGRAM_TBL_ENROLLMENT" Member="TBL_ENROLLMENTs" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_ENROLLMENT" />
+      <Association Name="TBL_PROGRAM_TBL_INSTRUCTOR" Member="TBL_INSTRUCTORs" ThisKey="PROG_ID" OtherKey="PROG_ID" Type="TBL_INSTRUCTOR" />
     </Type>
   </Table>
   <Function Name="dbo.ADMIN_ACCOUNT_EXIST_SP" Method="ADMIN_ACCOUNT_EXIST_SP">
@@ -202,21 +201,6 @@
       <Column Name="US_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.STUDENT_SAVE_SP" Method="STUDENT_SAVE_SP">
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="Char(6)" />
-    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(15)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="YearLevel" Parameter="yearLevel" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Schedule" Parameter="schedule" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Us_Id" Parameter="us_Id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.STUDENT_DELETE_SP" Method="STUDENT_DELETE_SP">
     <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -241,57 +225,8 @@
     <Parameter Name="ProgramStatus" Parameter="programStatus" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.INSTRUCTOR_UPDATE_SP" Method="INSTRUCTOR_UPDATE_SP">
-    <Parameter Name="InsID" Parameter="insID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="InsFName" Parameter="insFName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="InsMName" Parameter="insMName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="InsLName" Parameter="insLName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="InsGender" Parameter="insGender" Type="System.String" DbType="Char(6)" />
-    <Parameter Name="InsBday" Parameter="insBday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="InsPhone" Parameter="insPhone" Type="System.String" DbType="VarChar(15)" />
-    <Parameter Name="InsEmail" Parameter="insEmail" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="InsPassword" Parameter="insPassword" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="InsStatus" Parameter="insStatus" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="ProgID" Parameter="progID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.INSTRUCTOR_SEARCH_SP" Method="INSTRUCTOR_SEARCH_SP">
-    <Parameter Name="InstructorID" Parameter="instructorID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="Char(6)" />
-    <Parameter Name="BirthDate" Parameter="birthDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(15)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="ProgramID" Parameter="programID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="INSTRUCTOR_SEARCH_SPResult">
-      <Column Name="INS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="INS_NO" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
-      <Column Name="INS_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="INS_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="INS_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="INS_GENDER" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
-      <Column Name="INS_BDAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="INS_AGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="INS_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="INS_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="INS_PASSWORD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="INS_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.INSTRUCTOR_DELETE_SP" Method="INSTRUCTOR_DELETE_SP">
     <Parameter Name="InstructorID" Parameter="instructorID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ENROLLMENT_UPDATE_SP" Method="ENROLLMENT_UPDATE_SP">
-    <Parameter Name="EnrollID" Parameter="enrollID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EnrollDate" Parameter="enrollDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="EnrollTime" Parameter="enrollTime" Type="System.TimeSpan" DbType="Time" />
-    <Parameter Name="EnrollStatus" Parameter="enrollStatus" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="StudID" Parameter="studID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.ENROLLMENT_SEARCH_SP" Method="ENROLLMENT_SEARCH_SP">
@@ -305,13 +240,6 @@
       <Column Name="STUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.ENROLLMENT_SAVE_SP" Method="ENROLLMENT_SAVE_SP">
-    <Parameter Name="EnrollDate" Parameter="enrollDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="EnrollTime" Parameter="enrollTime" Type="System.TimeSpan" DbType="Time" />
-    <Parameter Name="EnrollStatus" Parameter="enrollStatus" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.ENROLLMENT_DISPLAY_SP" Method="ENROLLMENT_DISPLAY_SP">
     <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
     <ElementType Name="ENROLLMENT_DISPLAY_SPResult">
@@ -321,21 +249,6 @@
       <Column Name="ENROLL_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
       <Column Name="ENROLL_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.ENROLLMENT_DELETE_SP" Method="ENROLLMENT_DELETE_SP">
-    <Parameter Name="EnrollID" Parameter="enrollID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ADMIN_UPDATE_SP" Method="ADMIN_UPDATE_SP">
-    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BirthDate" Parameter="birthDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(15)" />
-    <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.ADMIN_SEARCH_SP" Method="ADMIN_SEARCH_SP">
     <Parameter Name="key" Type="System.String" DbType="NVarChar(MAX)" />
@@ -385,6 +298,237 @@
       <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UserRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="AccountExists" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GETUSERID" Method="GETUSERID">
+    <Parameter Name="UserNo" Parameter="userNo" Type="System.String" DbType="VarChar(1)" />
+    <ElementType Name="GETUSERIDResult">
+      <Column Name="US_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.USER_SAVE_SP" Method="USER_SAVE_SP1">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.STUDENT_SAVE_SP" Method="STUDENT_SAVE_SP">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="Char(6)" />
+    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="YearLevel" Parameter="yearLevel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Schedule" Parameter="schedule" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Us_Id" Parameter="us_Id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CheckExistingEnrollment" Method="CheckExistingEnrollment">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CheckExistingEnrollmentResult">
+      <Column Name="EnrollmentCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_USER_ID" Method="GET_USER_ID">
+    <Parameter Name="StudID" Parameter="studID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GET_USER_IDResult">
+      <Column Name="US_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.USER_INFO" Method="USER_INFO">
+    <ElementType Name="USER_INFOResult">
+      <Column Name="US_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="US_NO" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="US_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="US_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="US_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="US_BDAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="US_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="US_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="US_ROLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_STUD_ID" Method="GET_STUD_ID">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GET_STUD_IDResult">
+      <Column Name="STUD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ENROLLMENT_VIEW_SP" Method="ENROLLMENT_VIEW_SP">
+    <ElementType Name="ENROLLMENT_VIEW_SPResult">
+      <Column Name="ENROLL_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ENROLL_NO" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="ENROLL_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ENROLL_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ENROLL_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.VW_COURSE_INFO" Method="VW_COURSE_INFO">
+    <ElementType Name="VW_COURSE_INFOResult">
+      <Column Name="COURSE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COURSE_NO" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="COURSE_NAME" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="COURSE_UNITS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COURSE_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_DESC" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.STUDENT_TRACKER_SP" Method="STUDENT_TRACKER_SP">
+    <Parameter Name="StudID" Parameter="studID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="STUDENT_TRACKER_SPResult">
+      <Column Name="[Enrollment Number]" Member="Enrollment_Number" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="[Enrollment Date]" Member="Enrollment_Date" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="[Enrollment Time]" Member="Enrollment_Time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="[Enrollment Status]" Member="Enrollment_Status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Student Number]" Member="Student_Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Middle Name]" Member="Middle_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="[Date of Birth]" Member="Date_of_Birth" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Phone Number]" Member="Phone_Number" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Year Level]" Member="Year_Level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Schedule" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[User ID]" Member="User_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Program Description]" Member="Program_Description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Course Name]" Member="Course_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Course Units]" Member="Course_Units" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Instructor Name]" Member="Instructor_Name" Type="System.String" DbType="VarChar(101) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ENROLLMENT_SAVE_SP" Method="ENROLLMENT_SAVE_SP">
+    <Parameter Name="EnrollDate" Parameter="enrollDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="EnrollTime" Parameter="enrollTime" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="EnrollStatus" Parameter="enrollStatus" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProgID" Parameter="progID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CourseID" Parameter="courseID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ENROLLMENT_UPDATE_SP" Method="ENROLLMENT_UPDATE_SP">
+    <Parameter Name="EnrollNo" Parameter="enrollNo" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="EnrollStatus" Parameter="enrollStatus" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ENROLLMENT_DELETE_SP" Method="ENROLLMENT_DELETE_SP">
+    <Parameter Name="EnrollNo" Parameter="enrollNo" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.USER_LOADDATA_SP" Method="USER_LOADDATA_SP">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="USER_LOADDATA_SPResult">
+      <Column Name="US_NO" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="US_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="US_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="US_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="US_BDAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="US_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="US_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="US_ROLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.INSTRUCTOR_VIEW_SP" Method="INSTRUCTOR_VIEW_SP">
+    <ElementType Name="INSTRUCTOR_VIEW_SPResult">
+      <Column Name="INS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="INS_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INS_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_GENDER" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_BDAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="INS_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.INSTRUCTOR_UPDATE_SP" Method="INSTRUCTOR_UPDATE_SP">
+    <Parameter Name="InsID" Parameter="insID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InsFName" Parameter="insFName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="InsMName" Parameter="insMName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="InsLName" Parameter="insLName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="InsBday" Parameter="insBday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="InsPhone" Parameter="insPhone" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="InsEmail" Parameter="insEmail" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="InsStatus" Parameter="insStatus" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INSTRUCTOR_SEARCH_SP" Method="INSTRUCTOR_SEARCH_SP">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="INSTRUCTOR_SEARCH_SPResult">
+      <Column Name="INS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="INS_NO" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="INS_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INS_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_GENDER" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_BDAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="INS_AGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INS_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_PASSWORD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="INS_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PROGRAM_VIEW_SP" Method="PROGRAM_VIEW_SP">
+    <ElementType Name="PROGRAM_VIEW_SPResult">
+      <Column Name="PROG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_DESC" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_CREDITS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROG_STATUS" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PROGRAM_DELETE_SP" Method="PROGRAM_DELETE_SP">
+    <Parameter Name="ProgID" Parameter="progID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ADMIN_VIEW_SP" Method="ADMIN_VIEW_SP">
+    <ElementType Name="ADMIN_VIEW_SPResult">
+      <Column Name="ADMIN_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADMIN_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ADMIN_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ADMIN_UPDATE_SP" Method="ADMIN_UPDATE_SP">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.STUDENT_VIEW_SP" Method="STUDENT_VIEW_SP">
+    <ElementType Name="STUDENT_VIEW_SPResult">
+      <Column Name="STUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_NO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="STUD_FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_MNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STUD_LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_GENDER" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_BDAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_AGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STUD_PHONE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_ADDRESS" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_YRLVL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_SCHED" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="US_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STUD_COURSE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -17,37 +17,33 @@ namespace DBMSEnrollment
             InitializeComponent();
         }
 
+        DataClasses1DataContext db = new DataClasses1DataContext();
+
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Check acc in db
-            /*string email = tbEmail.Text;
+            string email = tbEmail.Text;
             string password = tbPassword.Text;
 
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Email and password cannot be empty.", "Validation Error");
-                return; 
+                return;
             }
 
             var result = db.ADMIN_ACCOUNT_EXIST_SP(email, password).SingleOrDefault();
 
             if (result != null && result.AccountExists == 1)
             {
-                int adminID = result.AdminID;
+                int? adminID = result.AdminID;
 
                 // Pass admin information to the Main 
-                AdminMain adminMain = new AdminMain();
-                this.Hide();
-                adminMain.Show();
+                
             }
-            else
-            {
-                MessageBox.Show("Account not found!", "Problem Occurred");
-            }*/
-
-            AdminMain adminMain = new AdminMain();
+            AdminMain admin = new AdminMain(1);
             this.Hide();
-            adminMain.Show();
+            admin.Show();
         }
 
         private void btnForgotPass_Click(object sender, EventArgs e)
